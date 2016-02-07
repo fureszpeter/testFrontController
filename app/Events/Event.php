@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace TestController\Events;
 
 abstract class Event
 {
