@@ -156,6 +156,8 @@ return [
         TestController\Providers\EventServiceProvider::class,
         TestController\Providers\RouteServiceProvider::class,
 
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+
     ],
 
     /*
