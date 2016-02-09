@@ -156,7 +156,16 @@ return [
         TestController\Providers\EventServiceProvider::class,
         TestController\Providers\RouteServiceProvider::class,
 
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        /*
+         * Custom providers
+         */
+        \TestController\Providers\MysqlServiceProvider::class,
+        \TestController\Providers\RepositoryServiceProvider::class,
+
+        /*
+         * Dev
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 
