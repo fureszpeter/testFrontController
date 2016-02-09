@@ -7,16 +7,18 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false">
+         stopOnFailure="false"
+         syntaxCheck="false">
     <testsuites>
-        <testsuite name="Application Test Suite">
+        <testsuite name="Unit Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist>
-            <directory suffix=".php">app/</directory>
-        </whitelist>
+        <blacklist>
+            <directory>vendor</directory>
+            <directory>storage</directory>
+        </blacklist>
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
