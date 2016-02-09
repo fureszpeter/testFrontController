@@ -1,6 +1,7 @@
 <?php
 namespace TestController\Domain\ValueObjects;
 
+use JsonSerializable;
 use TestController\Infrastructure\Validation\TypeChecker;
 use UnexpectedValueException;
 
@@ -10,7 +11,7 @@ use UnexpectedValueException;
  *
  * @license Proprietary
  */
-class Email
+class Email implements JsonSerializable
 {
     /**
      * @var string
@@ -66,5 +67,14 @@ class Email
     public function __toString()
     {
         return $this->getEmail();
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return string
+     */
+    function jsonSerialize()
+    {
+        return (string) $this;
     }
 }

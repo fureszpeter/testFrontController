@@ -1,6 +1,7 @@
 <?php
 namespace TestController\Domain\Entities;
 
+use JsonSerializable;
 use TestController\Domain\ValueObjects\Email;
 use TestController\Infrastructure\Validation\TypeChecker;
 
@@ -11,7 +12,7 @@ use TestController\Infrastructure\Validation\TypeChecker;
  *
  * @license Proprietary
  */
-class User
+class User implements JsonSerializable
 {
     /**
      * @var int|null
@@ -111,5 +112,19 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return array
+     */
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'email' => $this->getEmail(),
+        ];
     }
 }
